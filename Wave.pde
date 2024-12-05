@@ -30,22 +30,18 @@ class Wave {
 
   void updateWave(SongData data) {
     this.song = data;
-    // map (value, start1, stop1, start2, stop2);
-    this.amplitude = map(data.song.length(), 0, 30, 100, height/2 - 50);
-    //this.waveLength = map(data.month, 0, 11, width/4, width*2);
-    this.waveLength = map(data.artist.length(), 0, 30, width/4, width*2);
-    //this.cycles = map(data.year, 1958, 2021, 1, 5);
+    this.amplitude = map(data.song.length(), 0, 70, 0, 400);
+    this.waveLength = map(data.artist.length(), 3, 30, 1, panelWidth/8);
     this.cycles = map(data.month, 0, 11, 1, 50);
     this.colour = rankColours[data.rank];
     this.phaseSpeed = map(data.year, 1958, 2021, 0.1, 5.0);
   }
 
   void draw() {
-    //println("Current phase: " + phase);
     beginShape();
     stroke(this.colour);
-    for (float x = 0; x < width; x++) {
-      float y = height/2 + this.amplitude * sin((x / this.waveLength) * 2 * PI * this.cycles + phase);
+    for (float x = xStart; x < panelWidth; x++) {
+      float y = panelHeight-410 + this.amplitude * sin((x / this.waveLength) * 2 * PI * this.cycles + phase);
       vertex(x, y);
     }
     endShape();
@@ -54,17 +50,19 @@ class Wave {
     fill(255);
     textAlign(LEFT);
     textSize(16);
-    text(this.song.song + " - " + song.artist, 10, height - 40);
+    text(this.song.song + " - " + song.artist, xStart+10, panelHeight - 40);
     textSize(12);
     text(
       "Year: " + song.year +
       " | Month: " + monthArray[position[1]] +
       " | Day: " + song.day +
-      " | Rank: " + (song.rank+1), 10, height - 20
+      " | Rank: " + (song.rank+1) +
+      " | amplitude = " +this.amplitude +
+      " | wave length = " +this.waveLength, xStart+10, panelHeight - 20
       );
 
     textAlign(RIGHT);
-    text("SPACE & BACKSPACE: Change rank | ↑↓: Change year | ←→: Change month", width - 10, height - 20);
+    text("SPACE & BACKSPACE: Change rank | ↑↓: Change year | ←→: Change month", panelWidth - 10, panelHeight - 20);
     noFill();
   }
 }
