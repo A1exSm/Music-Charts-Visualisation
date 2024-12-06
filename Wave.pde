@@ -58,7 +58,7 @@ class Wave {
       " | Day: " + song.day +
       " | Rank: " + (song.rank+1) +
       " | amplitude = " +this.amplitude +
-      " | wave length = " +this.waveLength, xStart+10, panelHeight - 20
+      " | ave length = " +this.waveLength, xStart+10, panelHeight - 20
       );
 
     textAlign(RIGHT);

@@ -12,13 +12,10 @@ Wave currentWave;
 void setup() {
   //size(800, 400); // 800 width, 400 height
   fullScreen();
-  panelWidth = (width/2 + 800)+100;
-  panelHeight = (height/2 + 400)+100;
-  xStart = width - panelWidth;
-  yStart = panelHeight-400;
+  // method calls:
+  initSetup();
   loadData();
   sortData();
-  print(yStart);
 }
 
 void draw() {
@@ -39,6 +36,16 @@ void draw() {
   } else {
     position[1]++;
   }
+}
+
+void initSetup() { // handles variable initialisation for sketch setup
+  panelWidth = (width/2 + 800)+100;
+  if (panelWidth >= width) {
+    panelWidth = (width/3 + 800);
+  }
+  panelHeight = (height/2 + 400)+100;
+  xStart = width - panelWidth;
+  yStart = panelHeight-400;
 }
 
 void keyPressed() {
