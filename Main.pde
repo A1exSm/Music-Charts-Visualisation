@@ -1,5 +1,5 @@
 float panelWidth, panelHeight, xStart, yStart;
-Frame body = new Frame();
+Frame body;
 float phase = 0;
 String[] monthArray = {
   "January", "February", "March", "April", "May", "June",
@@ -13,6 +13,7 @@ void setup() {
   //size(800, 400); // 800 width, 400 height
   fullScreen();
   // method calls:
+  body = new Frame();
   initSetup();
   loadData();
   sortData();
@@ -38,14 +39,21 @@ void draw() {
   }
 }
 
-void initSetup() { // handles variable initialisation for sketch setup
-  panelWidth = (width/2 + 800)+100;
-  if (panelWidth >= width) {
-    panelWidth = (width/3 + 800);
-  }
-  panelHeight = (height/2 + 400)+100;
+//void initSetup() { // handles variable initialisation for sketch setup
+//  panelWidth = (width/2 + 800)+100;
+//  if (panelWidth >= width) {
+//    panelWidth = (width/3 + 800);
+//  }
+//  panelHeight = (height/2 + 400)+100;
+//  xStart = width - panelWidth;
+//  yStart = panelHeight-400;
+//}
+
+void initSetup() {
+  panelWidth = width * 0.8;
+  panelHeight = height * 0.8;
   xStart = width - panelWidth;
-  yStart = panelHeight-400;
+  yStart = panelHeight - 400;
 }
 
 void keyPressed() {
