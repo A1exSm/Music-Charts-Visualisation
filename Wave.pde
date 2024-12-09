@@ -31,7 +31,7 @@ class Wave {
   void updateWave(SongData data) {
     this.song = data;
     this.amplitude = map(data.song.length(), 0, 70, 0, 400);
-    this.waveLength = map(data.artist.length(), 3, 30, 1, panelWidth/8);
+    this.waveLength = map(data.artist.length(), 3, 30, 20, panelWidth/8);
     this.cycles = map(data.month, 0, 11, 1, 50);
     this.colour = rankColours[data.rank];
     this.phaseSpeed = map(data.year, 1958, 2021, 0.1, 5.0);

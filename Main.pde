@@ -2,8 +2,8 @@ float panelWidth, panelHeight, xStart, yStart;
 Frame body;
 float phase = 0;
 String[] monthArray = {
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 };
 int[] position = {1, 0, 0};// {year, month, rank}
 ArrayList<SongData> songs;
@@ -31,11 +31,17 @@ void draw() {
   stroke(255, 50);
   line(xStart, panelHeight-410, panelWidth, panelHeight-410);
   noFill();
+  //println(String.valueOf(position[1])+ "/ " + position[0]);
   if (currentSong.date != null) {
     currentWave = new Wave(currentSong);
     currentWave.draw();
+    body.controls[1].theta = 30 * position[1]; // if pos = 0. then 30 * 0 = 0, thus still at cirlce origin.
   } else {
-    position[1]++;
+    if (position[1] < 11) {
+      position[1]++;
+    } else {
+      position[1]--;
+    }
   }
 }
 
@@ -67,7 +73,10 @@ void keyPressed() {
 
   // Month navigation (0 to 11)
   if (keyCode == RIGHT && position[1] < 11) {
-    position[1]++;
+    if (position[0] == 63 && position[1] == 10) {
+    } else {
+      position[1]++;
+    }
   } else if (keyCode == LEFT && position[1] > 0) {
     position[1]--;
   }
