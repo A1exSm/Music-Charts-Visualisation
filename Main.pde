@@ -5,7 +5,7 @@ String[] monthArray = {
   "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
   "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 };
-int[] position = {1, 0, 0};// {year, month, rank}
+int[] position = {0, 0, 0};// {year, month, rank}
 ArrayList<SongData> songs;
 ArrayList<ArrayList<ArrayList<SongData>>> sortedSongs; // year, month, rank
 Wave currentWave;
@@ -35,7 +35,9 @@ void draw() {
   if (currentSong.date != null) {
     currentWave = new Wave(currentSong);
     currentWave.draw();
-    body.controls[1].theta = 30 * position[1]; // if pos = 0. then 30 * 0 = 0, thus still at cirlce origin.
+    body.controls[0].theta = ((float) 360/64) * position[0];
+    body.controls[1].theta = body.controlsTheta[1] * position[1]; // if pos = 0. then 30 * 0 = 0, thus still at cirlce origin.
+    body.controls[2].theta = body.controlsTheta[2] * position[2];
   } else {
     if (position[1] < 11) {
       position[1]++;
