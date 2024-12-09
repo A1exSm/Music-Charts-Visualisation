@@ -36,7 +36,7 @@ class Frame {
   }
 
   class Knob {
-    private float diameter = 100; // I have noticed that this is not reactive due to using 100, but sometimes triage is required
+    private float diameter = height*0.08; // kinda reactive to screen size
     private float radius = diameter/2;
     public float theta = 0; // to make the circle align correctly a transformation of -5 degrees is needed
     protected float offset;
