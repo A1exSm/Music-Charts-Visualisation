@@ -12,3 +12,5 @@ Lets break this down:
   <li>$Cycles$ is added to the equation in order to control the number of wave cycles displayed within the screen width.</li>
 </ls>
 <p>To apple this to a data set we only need to assign data points to 4 variables: $amplitude$, $wave length$, $cycles$ and $phase speed$ ($\phi$).</p>
+
+### Download: [Latest Release](https://github.com/yourusername/yourrepo/releases)
