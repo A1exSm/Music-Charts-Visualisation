@@ -11,6 +11,19 @@ Lets break this down:
   <li>The inverse of $frequency$ is $1/wave length$ ($W$), thus we divide $x$ by $W$.</li>
   <li>$Cycles$ is added to the equation in order to control the number of wave cycles displayed within the screen width.</li>
 </ls>
-<p>To apple this to a data set we only need to assign data points to 4 variables: $amplitude$, $wave length$, $cycles$ and $phase speed$ ($\phi$).</p>
+<p><br>To apply this to a data set we only need to assign data points to 4 variables: $amplitude$, $wave length$, $cycles$ and $phase speed$ ($\phi$).</p>
 
-### Download: [Latest Release](https://github.com/A1exSm/Music-Charts-Visualisation/releases)
+---
+
+### About Data
+
+The dataset used in this project is titled **"Billboard 'The Hot 100' Songs"** by Dhruvil Dave and was sourced from Kaggle. The use of Kaggle for data sourcing was encouraged by my personal tutor. The dataset has been modified for use in this project. Below is the full citation:
+
+> **Citation**:  
+> Dhruvil Dave. *Billboard "The Hot 100" Songs*. Kaggle, 2021.  
+> DOI: [10.34740/KAGGLE/DS/1211465](https://doi.org/10.34740/KAGGLE/DS/1211465)  
+> URL: [https://www.kaggle.com/ds/1211465](https://www.kaggle.com/ds/1211465)
+
+--- 
+
+### Project Download: [Latest Release](https://github.com/A1exSm/Music-Charts-Visualisation/releases)
