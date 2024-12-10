@@ -13,4 +13,4 @@ Lets break this down:
 </ls>
 <p>To apple this to a data set we only need to assign data points to 4 variables: $amplitude$, $wave length$, $cycles$ and $phase speed$ ($\phi$).</p>
 
-### Download: [Latest Release](https://github.com/yourusername/yourrepo/releases)
+### Download: [Latest Release](https://github.com/A1exSm/Music-Charts-Visualisation/releases)
