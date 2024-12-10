@@ -1,16 +1,13 @@
 class Wave {
-  float amplitude;
-  float waveLength;
-  float cycles = 2;
-  float phaseSpeed = 0.09;
-  color colour;
-  SongData song;
+  private float amplitude, waveLength, cycles, phaseSpeed;
+  private color colour;
+  private SongData song;
 
   Wave(SongData song) {
     updateWave(song);
   }
 
-  color[] rankColours = {
+  private color[] rankColours = {
     color(255, 0, 0), // Bright red
     color(255, 64, 0), // Bright orange
     color(255, 128, 0), // Orange
@@ -25,10 +22,10 @@ class Wave {
     color(0, 128, 255), // Blue
     color(0, 64, 255), // Indigo
     color(128, 0, 255), // Purple
-    color(64, 0, 128)     // Dark purple
+    color(64, 0, 128) // Dark purple
   };
 
-  void updateWave(SongData data) {
+  private void updateWave(SongData data) {
     this.song = data;
     this.amplitude = map(data.song.length(), 0, 70, 0, 400);
     this.waveLength = map(data.artist.length(), 3, 30, 20, panelWidth/8);
@@ -37,7 +34,7 @@ class Wave {
     this.phaseSpeed = map(data.year, 1958, 2021, 0.1, 5.0);
   }
 
-  void draw() {
+  private void draw() {
     beginShape();
     stroke(this.colour);
     for (float x = xStart; x < panelWidth; x++) {
@@ -46,23 +43,15 @@ class Wave {
     }
     endShape();
     phase+=this.phaseSpeed;
-
+    noStroke();
     fill(255);
     textAlign(LEFT);
     textSize(16);
     text(this.song.song + " - " + song.artist, xStart+10, panelHeight - 40);
     textSize(12);
-    text(
-      "Year: " + song.year +
-      " | Month: " + monthArray[position[1]] +
-      " | Day: " + song.day +
-      " | Rank: " + (song.rank+1) +
-      " | amplitude = " +this.amplitude +
-      " | ave length = " +this.waveLength, xStart+10, panelHeight - 20
-      );
-
+    text("Year: " + song.year + " | Month: " + monthArray[position[1]] + " | Rank: " + (song.rank+1), xStart+10, panelHeight - 20);
     textAlign(RIGHT);
-    text("SPACE & BACKSPACE: Change rank | ↑↓: Change year | ←→: Change month", panelWidth - 10, panelHeight - 20);
+    text("SPACE: Rank | \u2191\u2193: Change year | \u2190\u2192: Change month | R: Reset", panelWidth - 10, panelHeight - 20); // arrows using unicode
     noFill();
   }
 }
